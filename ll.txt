@@ -1,0 +1,29 @@
+void initdat()//初始化各表
+{
+   ofstream output("key.dat",ios::out);//关键字表
+   if(!output) exit(-1);
+   int i;
+   for(i=0;i<32;i++)
+   {output<<key[i]<<endl;}//向文件输出 
+   output.close();
+   output.open("boundary.dat",ios::out);//分界符表
+   if(!output) exit(-1);
+   for(i=0;i<9;i++)
+       output<<boundary[i]<<endl;
+   output.close();
+   output.open("operators.dat",ios::out);//运算符表
+   if(!output) exit(-1);
+   for(i=0;i<40;i++)
+   {
+       output<<operators[i]<<' ';
+       if(i==OP1||i==OP2||i==OP3||i==OP4||i==OP5||i==OP6||i==OP7||i==OP8)//运算符分类输出到文件中
+        output<<endl;
+   }
+   output.close();
+   output.open("id.dat",ios::out);//标识符表
+   if(!output) exit(-1);
+   output.close();
+   output.open("output.dat",ios::out);//数据输出表
+   if(!output) exit(-1);
+   output.close();  
+}
